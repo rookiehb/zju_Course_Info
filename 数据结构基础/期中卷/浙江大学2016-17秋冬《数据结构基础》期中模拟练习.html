@@ -1,0 +1,400 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>浙江大学2016-17秋冬《数据结构基础》期中模拟练习</title>
+  <style>*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+html {
+  font-family: sans-serif;
+  line-height: 1.15;
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+  -ms-overflow-style: scrollbar;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+body {
+  margin: 0;
+  font-family: -apple-system, "PingFang SC", "Lantinghei SC", "Helvetica Neue", "Microsoft Yahei", "Hiragino Sans GB", "Microsoft Sans Serif", "WenQuanYi Micro Hei", sans-serif;
+  font-size: 0.875rem;
+  font-weight: 400;
+  line-height: 1.5;
+  color: #212529;
+  text-align: left;
+  background-color: #fff;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin-top: 0;
+  margin-bottom: 0.5rem;
+}
+p {
+  margin-top: 0;
+  margin-bottom: 1rem;
+}
+pre,
+code,
+kbd,
+samp {
+  font-family: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  font-size: 1em;
+}
+pre {
+  margin-top: 0;
+  margin-bottom: 1rem;
+  overflow: auto;
+  -ms-overflow-style: scrollbar;
+}
+.ques-view *:first-child {
+  margin-top: 0;
+}
+.container {
+  max-width: 940px;
+  margin: auto;
+}
+.problemType {
+  display: flex;
+  font-size: 18px;
+  margin: 24px 0 16px;
+}
+.problemType > span:first-child {
+  flex-grow: 1;
+  font-weight: bold;
+}
+.problemType > span:last-child {
+  margin-left: 20px;
+}
+.title {
+  padding: 16px;
+  text-align: center;
+  font-size: 24px;
+  font-weight: bold;
+}
+.header > div {
+  width: calc(100% / 3);
+  display: inline-flex;
+}
+.header > div > span:first-child {
+  font-weight: bold;
+  width: 56px;
+}
+.header > div > span:first-child + span {
+  margin-left: 8px;
+}
+.container {
+  padding: 32px 0 24px;
+  border-bottom: 1px solid hsla(0, 0%, 0%, 0.1);
+}
+.container .problem {
+  display: flex;
+}
+.container .problem > :first-child {
+  margin-right: 12px;
+  white-space: nowrap;
+}
+.container .problem > :nth-child(2) {
+  overflow-x: hidden;
+}
+.container .judgeResponse table {
+  width: 100%;
+}
+.container .judgeResponse th,
+.container .judgeResponse td {
+  border: 1px solid hsla(0, 0%, 0%, 0.1);
+  text-align: center;
+}
+.container .shortField {
+  display: flex;
+}
+.container .shortField > :first-child {
+  width: 80px;
+}
+.container .shortField > :nth-child(2) a {
+  padding: 2px 12px;
+  border: 1px solid hsl(212, 89%, 53%);
+  transition: all 0.3s;
+  text-decoration: none;
+}
+.container .shortField > :nth-child(2) a:hover {
+  background-color: hsl(35, 90%, 50%);
+  color: hsl(0, 0%, 100%);
+  border-color: hsl(0, 0%, 100%);
+}
+.container .longField > :first-child ~ * {
+  padding: 16px;
+  border: 1px dashed hsla(0, 0%, 0%, 0.1);
+}
+.container .shortField,
+.container .longField {
+  margin-top: 8px;
+}
+.container .shortField > :first-child,
+.container .longField > :first-child {
+  position: relative;
+}
+.container .shortField > :first-child::before,
+.container .longField > :first-child::before {
+  content: ' ';
+  position: absolute;
+  display: inline-block;
+  width: 8px;
+  height: 100%;
+  left: -12px;
+  top: 0;
+  background-color: hsla(0, 0%, 0%, 0.2);
+}
+.ques-view {
+  line-height: 1.5;
+  /* font-family: 'Times New Roman'; */
+}
+.ques-view p {
+  margin: 0.5em 0;
+}
+.ques-view h1,
+.ques-view h2,
+.ques-view h3,
+.ques-view h4,
+.ques-view h5,
+.ques-view h6 {
+  margin: 0.8em 0;
+}
+.ques-view img {
+  max-width: 100%;
+}
+.ques-view .ques-list {
+  padding-left: 50px;
+}
+.ques-view .ques-list li {
+  position: relative;
+  list-style-type: upper-alpha;
+}
+.ques-view .ques-list input {
+  position: absolute;
+  left: -40px;
+  top: 50%;
+  margin-top: -7px;
+}
+.ques-view textarea {
+  border-radius: 2px;
+  width: 100%;
+  padding: 10px;
+  box-sizing: border-box;
+  min-height: 100px;
+}
+.ques-view code {
+  font-size: 12px;
+  background: #f7f7f7;
+  border-radius: 3px;
+  border: 1px solid #e4e4e4;
+  padding: 0 3px;
+  color: #e74c3c;
+  margin: 0 2px;
+  font-family: 'YaHei consolas Hybrid', 'Consolas', monospace;
+}
+.ques-view pre {
+  padding: 6px 12px;
+  background: #f7f7f7;
+  border: 1px solid #ddd;
+  border-radius: 3px;
+  word-break: break-all;
+}
+.ques-view pre code {
+  background: none;
+  border: none;
+  color: #333;
+  padding: 0;
+  margin: 0;
+}
+.ques-view hr {
+  border: none;
+  border-top: 1px solid #ccc;
+}
+.ques-view blockquote {
+  margin: 0.5em 0;
+  padding: 2px 14px;
+  font-size: 12px;
+  background: #f4f4f4;
+  border-left: 4px solid #ddd;
+}
+.ques-view table {
+  margin: 0 auto;
+}
+.ques-view table th,
+.ques-view table td {
+  border: 1px solid #ddd;
+  padding: 2px 4px;
+  font-size: 12px;
+}
+.ques-view .ques-score {
+  color: #999;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+}
+/* katex */
+.katex-mathml {
+  display: none;
+}
+</style>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.7.1/dist/katex.min.css" integrity="sha256-tkzDFSl16wERzhCWg0ge2tON2+D6Qe9iEaJqM4ZGd4E=" crossorigin="anonymous">
+</head>
+<body>
+
+<div><div class="container"><div class="title">浙江大学2016-17秋冬《数据结构基础》期中模拟练习</div><div class="header"><div><span>开始时间</span><span>1/1/2016, 12:00:00 AM</span></div><div><span>结束时间</span><span>1/18/2038, 12:00:00 AM</span></div><div><span>答题时长</span><span>45分钟</span></div><div><span>考生</span><span>-</span></div><div><span>得分</span><span>95</span></div><div><span>总分</span><span>100</span></div></div><hr/><div><div class="problemType"><span>判断题</span><span>总分：15</span><span>得分：15</span></div><div class="container"><div class="problem"><div>1-1</div><div><div class="ques-view"><p>In a binary search tree, the keys on the same level from left to right must be in sorted (non-decreasing) order.
+<span class="ques-score">(3分)</span><div class="ques-answer ques-tof"><label><input disabled type="radio" name="ques1" checked>T</label> &nbsp; &nbsp; &nbsp; &nbsp; <label><input disabled type="radio" name="ques1">F</label></div></p>
+</div>
+</div></div><div class="longField judgeResponse"><div>评测结果：答案正确（3 分）</div></div></div><div class="container"><div class="problem"><div>1-2</div><div><div class="ques-view"><p>For a sequentially stored linear list of length <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>N</mi></mrow><annotation encoding="application/x-tex">N</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.68333em;"></span><span class="strut bottom" style="height:0.68333em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathit" style="margin-right:0.10903em;">N</span></span></span></span>, the time complexities for query and insertion are <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>O</mi><mo>(</mo><mn>1</mn><mo>)</mo></mrow><annotation encoding="application/x-tex">O(1)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.75em;"></span><span class="strut bottom" style="height:1em;vertical-align:-0.25em;"></span><span class="base textstyle uncramped"><span class="mord mathit" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord mathrm">1</span><span class="mclose">)</span></span></span></span> and <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>O</mi><mo>(</mo><mi>N</mi><mo>)</mo></mrow><annotation encoding="application/x-tex">O(N)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.75em;"></span><span class="strut bottom" style="height:1em;vertical-align:-0.25em;"></span><span class="base textstyle uncramped"><span class="mord mathit" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord mathit" style="margin-right:0.10903em;">N</span><span class="mclose">)</span></span></span></span>, respectively.
+<span class="ques-score">(3分)</span><div class="ques-answer ques-tof"><label><input disabled type="radio" name="ques2" checked>T</label> &nbsp; &nbsp; &nbsp; &nbsp; <label><input disabled type="radio" name="ques2">F</label></div></p>
+</div>
+</div></div><div class="longField judgeResponse"><div>评测结果：答案正确（3 分）</div></div></div><div class="container"><div class="problem"><div>1-3</div><div><div class="ques-view"><p><span class="katex"><span class="katex-mathml"><math><semantics><mrow><msup><mi>N</mi><mn>2</mn></msup><mi>l</mi><mi>o</mi><mi>g</mi><mi>N</mi></mrow><annotation encoding="application/x-tex">N^2 logN</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.8141079999999999em;"></span><span class="strut bottom" style="height:1.008548em;vertical-align:-0.19444em;"></span><span class="base textstyle uncramped"><span class="mord"><span class="mord mathit" style="margin-right:0.10903em;">N</span><span class="msupsub"><span class="vlist"><span style="top:-0.363em;margin-right:0.05em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle uncramped mtight"><span class="mord mathrm mtight">2</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span></span><span class="mord mathit" style="margin-right:0.01968em;">l</span><span class="mord mathit">o</span><span class="mord mathit" style="margin-right:0.03588em;">g</span><span class="mord mathit" style="margin-right:0.10903em;">N</span></span></span></span> and <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>N</mi><mi>l</mi><mi>o</mi><mi>g</mi><msup><mi>N</mi><mn>2</mn></msup></mrow><annotation encoding="application/x-tex">N logN^2</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.8141079999999999em;"></span><span class="strut bottom" style="height:1.008548em;vertical-align:-0.19444em;"></span><span class="base textstyle uncramped"><span class="mord mathit" style="margin-right:0.10903em;">N</span><span class="mord mathit" style="margin-right:0.01968em;">l</span><span class="mord mathit">o</span><span class="mord mathit" style="margin-right:0.03588em;">g</span><span class="mord"><span class="mord mathit" style="margin-right:0.10903em;">N</span><span class="msupsub"><span class="vlist"><span style="top:-0.363em;margin-right:0.05em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle uncramped mtight"><span class="mord mathrm mtight">2</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span></span></span></span></span> have the same speed of growth.
+<span class="ques-score">(3分)</span><div class="ques-answer ques-tof"><label><input disabled type="radio" name="ques3">T</label> &nbsp; &nbsp; &nbsp; &nbsp; <label><input disabled type="radio" name="ques3" checked>F</label></div></p>
+</div>
+</div></div><div class="longField judgeResponse"><div>评测结果：答案正确（3 分）</div></div></div><div class="container"><div class="problem"><div>1-4</div><div><div class="ques-view"><p>If keys are pushed onto a stack in the order {1, 2, 3, 4, 5}, then it is impossible to obtain the output sequence {3, 4, 1, 2, 5}.
+<span class="ques-score">(3分)</span><div class="ques-answer ques-tof"><label><input disabled type="radio" name="ques4" checked>T</label> &nbsp; &nbsp; &nbsp; &nbsp; <label><input disabled type="radio" name="ques4">F</label></div></p>
+</div>
+</div></div><div class="longField judgeResponse"><div>评测结果：答案正确（3 分）</div></div></div><div class="container"><div class="problem"><div>1-5</div><div><div class="ques-view"><p>In a directed graph, the sum of the in-degrees and out-degrees of all the vertices is twice the total number of edges.
+<span class="ques-score">(3分)</span><div class="ques-answer ques-tof"><label><input disabled type="radio" name="ques5" checked>T</label> &nbsp; &nbsp; &nbsp; &nbsp; <label><input disabled type="radio" name="ques5">F</label></div></p>
+</div>
+</div></div><div class="longField judgeResponse"><div>评测结果：答案正确（3 分）</div></div></div></div><div><div class="problemType"><span>单选题</span><span>总分：65</span><span>得分：60</span></div><div class="container"><div class="problem"><div>2-1</div><div><div class="ques-view"><p>The result of performing three DeleteMin operations in the min-heap {1,3,2,6,7,5,4,15,14,12,9,10,11,13,8} is: <span class="ques-score">(5分)</span></p>
+<ol class="ques-answer ques-choice ques-list">
+<li><label><input disabled type="radio" name="ques6"> 4,5,6,7,8,9,10,11,12,13,14,15</label></li>
+<li><label><input disabled type="radio" name="ques6" checked> 4,6,5,13,7,10,8,15,14,12,9,11</label></li>
+<li><label><input disabled type="radio" name="ques6"> 4,6,5,12,7,10,8,15,14,9,13,11</label></li>
+<li><label><input disabled type="radio" name="ques6"> 4,5,6,12,7,10,8,15,14,13,9,11</label></li>
+</ol>
+</div>
+</div></div><div class="longField judgeResponse"><div>评测结果：答案正确（5 分）</div></div></div><div class="container"><div class="problem"><div>2-2</div><div><div class="ques-view"><p>If an undirected graph G = (V, E) contains 10 vertices.  Then to guarantee that G is connected in any cases, there has to be at least __ edges. <span class="ques-score">(6分)</span></p>
+<ol class="ques-answer ques-choice ques-list">
+<li><label><input disabled type="radio" name="ques7"> 45</label></li>
+<li><label><input disabled type="radio" name="ques7" checked> 37</label></li>
+<li><label><input disabled type="radio" name="ques7"> 36</label></li>
+<li><label><input disabled type="radio" name="ques7"> 9</label></li>
+</ol>
+</div>
+</div></div><div class="longField judgeResponse"><div>评测结果：答案正确（6 分）</div></div></div><div class="container"><div class="problem"><div>2-3</div><div><div class="ques-view"><p>What is a critical path in an AOE network? <span class="ques-score">(5分)</span></p>
+<ol class="ques-answer ques-choice ques-list">
+<li><label><input disabled type="radio" name="ques8"> the shortest circuit</label></li>
+<li><label><input disabled type="radio" name="ques8"> the longest circuit</label></li>
+<li><label><input disabled type="radio" name="ques8"> the shortest path from the first to the last event</label></li>
+<li><label><input disabled type="radio" name="ques8" checked> the longest path from the first to the last event</label></li>
+</ol>
+</div>
+</div></div><div class="longField judgeResponse"><div>评测结果：答案正确（5 分）</div></div></div><div class="container"><div class="problem"><div>2-4</div><div><div class="ques-view"><p>Given a quadtree(四叉树) with 4 nodes of degree 2, 4 nodes of degree 3, 3 nodes of degree 4.  The number of leaf nodes in this tree is __. <span class="ques-score">(5分)</span></p>
+<ol class="ques-answer ques-choice ques-list">
+<li><label><input disabled type="radio" name="ques9" checked> 22</label></li>
+<li><label><input disabled type="radio" name="ques9"> 21</label></li>
+<li><label><input disabled type="radio" name="ques9"> 20</label></li>
+<li><label><input disabled type="radio" name="ques9"> 12</label></li>
+</ol>
+</div>
+</div></div><div class="longField judgeResponse"><div>评测结果：答案正确（5 分）</div></div></div><div class="container"><div class="problem"><div>2-5</div><div><div class="ques-view"><p>To insert <code>s</code> after <code>p</code> in a doubly linked circular list, we must do: <span class="ques-score">(6分)</span></p>
+<ol class="ques-answer ques-choice ques-list">
+<li><label><input disabled type="radio" name="ques10"> <code>p-&gt;next=s; s-&gt;prior=p; p-&gt;next-&gt;prior=s ; s-&gt;next=p-&gt;next;</code></label></li>
+<li><label><input disabled type="radio" name="ques10"> <code>p-&gt;next-&gt;prior=s; p-&gt;next=s; s-&gt;prior=p; s-&gt;next=p-&gt;next;</code></label></li>
+<li><label><input disabled type="radio" name="ques10"> <code>s-&gt;prior=p; s-&gt;next=p-&gt;next; p-&gt;next=s; p-&gt;next-&gt;prior=s;</code></label></li>
+<li><label><input disabled type="radio" name="ques10" checked> <code>s-&gt;prior=p; s-&gt;next=p-&gt;next; p-&gt;next-&gt;prior=s; p-&gt;next=s;</code></label></li>
+</ol>
+</div>
+</div></div><div class="longField judgeResponse"><div>评测结果：答案正确（6 分）</div></div></div><div class="container"><div class="problem"><div>2-6</div><div><div class="ques-view"><p>Use Dijkstra algorithm to find the shortest paths from 1 to every other vertices.  In which order that the destinations must be obtained? <span class="ques-score">(5分)</span></p>
+<p><img  src="https://images.ptausercontent.com/127" alt=""></p>
+<ol class="ques-answer ques-choice ques-list">
+<li><label><input disabled type="radio" name="ques11"> 5, 2, 3, 4, 6</label></li>
+<li><label><input disabled type="radio" name="ques11" checked> 5, 2, 3, 6, 4</label></li>
+<li><label><input disabled type="radio" name="ques11"> 5, 2, 4, 3, 6</label></li>
+<li><label><input disabled type="radio" name="ques11"> 5, 2, 6, 3, 4</label></li>
+</ol>
+</div>
+</div></div><div class="longField judgeResponse"><div>评测结果：答案正确（5 分）</div></div></div><div class="container"><div class="problem"><div>2-7</div><div><div class="ques-view"><p>In a weighted graph, if the length of the shortest path from <code>b</code> to <code>a</code> is 10, and there exists an edge of weight 3 between <code>c</code> and <code>b</code>, then how many of the following statements is/are TRUE? <span class="ques-score">(6分)</span></p>
+<ol>
+<li>The length of the shortest path from <code>c</code> to <code>a</code> must be 13.</li>
+<li>The length of the shortest path from <code>c</code> to <code>a</code> must be 7.</li>
+<li>The length of the shortest path from <code>c</code> to <code>a</code> must be no greater than 13.</li>
+<li>The length of the shortest path from <code>c</code> to <code>a</code> must be no less than 7.</li>
+</ol>
+<ol class="ques-answer ques-choice ques-list">
+<li><label><input disabled type="radio" name="ques12"> 1</label></li>
+<li><label><input disabled type="radio" name="ques12" checked> 2</label></li>
+<li><label><input disabled type="radio" name="ques12"> 3</label></li>
+<li><label><input disabled type="radio" name="ques12"> 4</label></li>
+</ol>
+</div>
+</div></div><div class="longField judgeResponse"><div>评测结果：答案正确（6 分）</div></div></div><div class="container"><div class="problem"><div>2-8</div><div><div class="ques-view"><p>Suppose that an array of size <code>m</code> is used to store a circular queue.  If the head pointer <code>front</code> and the current size variable <code>size</code> are used to represent the range of the queue instead of <code>front</code> and <code>rear</code>, then the maximum capacity of this queue can be: <span class="ques-score">(5分)</span></p>
+<ol class="ques-answer ques-choice ques-list">
+<li><label><input disabled type="radio" name="ques13" checked> <code>m-1</code></label></li>
+<li><label><input disabled type="radio" name="ques13"> <code>m</code></label></li>
+<li><label><input disabled type="radio" name="ques13"> <code>m+1</code></label></li>
+<li><label><input disabled type="radio" name="ques13"> cannot be determined</label></li>
+</ol>
+</div>
+</div></div><div class="longField judgeResponse"><div>评测结果：答案错误（0 分）</div></div></div><div class="container"><div class="problem"><div>2-9</div><div><div class="ques-view"><p>The array representation of a disjoint set is given by { 4, 6, 5, 2, -3, -4, 3 }.  If the elements are numbered from 1 to 7, the resulting array after invoking <code>Union(Find(7),Find(1))</code> with union-by-size and path-compression is: <span class="ques-score">(5分)</span></p>
+<ol class="ques-answer ques-choice ques-list">
+<li><label><input disabled type="radio" name="ques14"> { 4, 6, 5, 2, 6, -7, 3 }</label></li>
+<li><label><input disabled type="radio" name="ques14"> { 4, 6, 5, 2, -7, 5, 3 }</label></li>
+<li><label><input disabled type="radio" name="ques14"> { 6, 6, 5, 6, -7, 5, 5 }</label></li>
+<li><label><input disabled type="radio" name="ques14" checked> { 6, 6, 5, 6, 6, -7, 5 }</label></li>
+</ol>
+</div>
+</div></div><div class="longField judgeResponse"><div>评测结果：答案正确（5 分）</div></div></div><div class="container"><div class="problem"><div>2-10</div><div><div class="ques-view"><p>Insert { 3, 8, 9, 1, 2, 6 } one by one into an initially empty binary search tree.  The post-order  traversal sequence of the resulting tree is: <span class="ques-score">(6分)</span></p>
+<ol class="ques-answer ques-choice ques-list">
+<li><label><input disabled type="radio" name="ques15"> 2, 1, 3, 6, 9, 8</label></li>
+<li><label><input disabled type="radio" name="ques15"> 1, 2, 8, 6, 9, 3</label></li>
+<li><label><input disabled type="radio" name="ques15" checked> 2, 1, 6, 9, 8, 3</label></li>
+<li><label><input disabled type="radio" name="ques15"> 1, 2, 3, 6, 9, 8</label></li>
+</ol>
+</div>
+</div></div><div class="longField judgeResponse"><div>评测结果：答案正确（6 分）</div></div></div><div class="container"><div class="problem"><div>2-11</div><div><div class="ques-view"><p>Given a directed graph G=(V, E) where <code>V = {v1, v2, v3, v4, v5, v6}</code> and <code>E = {&lt;v1,v2&gt;, &lt;v1,v4&gt;, &lt;v2,v6&gt;, &lt;v3,v1&gt;, &lt;v3,v4&gt;, &lt;v4,v5&gt;, &lt;v5,v2&gt;, &lt;v5,v6&gt;}</code>.  Then the topological order of G is: <span class="ques-score">(5分)</span></p>
+<ol class="ques-answer ques-choice ques-list">
+<li><label><input disabled type="radio" name="ques16" checked> <code>v3, v1, v4, v5, v2, v6</code></label></li>
+<li><label><input disabled type="radio" name="ques16"> <code>v3, v4, v1, v5, v2, v6</code></label></li>
+<li><label><input disabled type="radio" name="ques16"> <code>v1, v3, v4, v5, v2, v6</code></label></li>
+<li><label><input disabled type="radio" name="ques16"> <code>v1, v4, v3, v5, v2, v6</code></label></li>
+</ol>
+</div>
+</div></div><div class="longField judgeResponse"><div>评测结果：答案正确（5 分）</div></div></div><div class="container"><div class="problem"><div>2-12</div><div><div class="ques-view"><p>In a complete binary tree with 1102 nodes, there must be __ leaf nodes. <span class="ques-score">(6分)</span></p>
+<ol class="ques-answer ques-choice ques-list">
+<li><label><input disabled type="radio" name="ques17"> 79</label></li>
+<li><label><input disabled type="radio" name="ques17" checked> 551</label></li>
+<li><label><input disabled type="radio" name="ques17"> 1063</label></li>
+<li><label><input disabled type="radio" name="ques17"> cannot be determined</label></li>
+</ol>
+</div>
+</div></div><div class="longField judgeResponse"><div>评测结果：答案正确（6 分）</div></div></div></div><div><div class="problemType"><span>程序填空题</span><span>总分：20</span><span>得分：20</span></div><div class="container"><div class="problem"><div>5-1</div><div><div class="ques-view"><p>The function is to lower the value of the integer key at position <code>P</code> by a positive amount <code>D</code> in a min-heap <code>H</code>.</p>
+<pre><code class="lang-c++">void DecreaseKey( int P, int D, PriorityQueue H )
+{
+   int i, key;
+   key = H-&gt;Elements[P] - D;
+   for ( i = <input disabled class="ques-answer" type="text" value="P" size="45"><span class="ques-score">(5分)</span>; H-&gt;Elements[i/2] &gt; key; i/=2 )
+      <input disabled class="ques-answer" type="text" value="H-&gt;Elements[i]=H-&gt;Elements[i/2]" size="45"><span class="ques-score">(5分)</span>;
+   H-&gt;Elements[i] = key;
+}
+</code></pre>
+</div>
+</div></div><div class="longField judgeResponse"><div>评测结果：答案正确（10 分）</div><table><thead><tr><th>序号</th><th>结果</th><th>得分</th></tr></thead><tbody><tr><td>0</td><td>答案正确</td><td>5</td></tr><tr><td>1</td><td>答案正确</td><td>5</td></tr></tbody></table></div></div><div class="container"><div class="problem"><div>5-2</div><div><div class="ques-view"><p>Please fill in the blanks in the program which performs <code>Find</code> as a Union/Find operation with path compression.</p>
+<pre><code class="lang-c++">SetType Find ( ElementType X, DisjSet S )
+{   
+   ElementType root, trail, lead;
+
+   for ( root = X; S[root] &gt; 0; <input disabled class="ques-answer" type="text" value="root=S[root]" size="24"><span class="ques-score">(5分)</span> ) ;  
+   for ( trail = X; trail != root; trail = lead ) {
+      lead = S[trail] ;   
+      <input disabled class="ques-answer" type="text" value="S[trail]=root" size="24"><span class="ques-score">(5分)</span>;   
+   } 
+   return root;
+}
+</code></pre>
+</div>
+</div></div><div class="longField judgeResponse"><div>评测结果：答案正确（10 分）</div><table><thead><tr><th>序号</th><th>结果</th><th>得分</th></tr></thead><tbody><tr><td>0</td><td>答案正确</td><td>5</td></tr><tr><td>1</td><td>答案正确</td><td>5</td></tr></tbody></table></div></div></div></div></div>
+
+</body>
+</html>
