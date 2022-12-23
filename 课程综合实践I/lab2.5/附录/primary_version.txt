@@ -1,0 +1,235 @@
+.file	"lab2_bonus.cpp"
+	.text
+	.globl	a
+	.bss
+	.align 32
+	.type	a, @object
+	.size	a, 400000000
+a:
+	.zero	400000000
+	.globl	b
+	.align 32
+	.type	b, @object
+	.size	b, 400000000
+b:
+	.zero	400000000
+	.globl	c
+	.align 32
+	.type	c, @object
+	.size	c, 400000000
+c:
+	.zero	400000000
+	.globl	d
+	.align 32
+	.type	d, @object
+	.size	d, 400000000
+d:
+	.zero	400000000
+	.section	.rodata
+.LC2:
+	.string	"time=%f\n"
+.LC4:
+	.string	"Check Failed at %d\n"
+.LC5:
+	.string	"Check Passed"
+	.text
+	.globl	main
+	.type	main, @function
+main:
+.LFB15:
+	.cfi_startproc
+	endbr64
+	pushq	%rbp
+	.cfi_def_cfa_offset 16
+	.cfi_offset 6, -16
+	movq	%rsp, %rbp
+	.cfi_def_cfa_register 6
+	subq	$48, %rsp
+	movl	$0, -40(%rbp)
+.L3:
+	cmpl	$99999999, -40(%rbp)
+	jg	.L2
+	call	rand@PLT
+	addl	$1, %eax
+	cvtsi2sdl	%eax, %xmm1
+	movsd	.LC0(%rip), %xmm0
+	divsd	%xmm1, %xmm0
+	cvtsd2ss	%xmm0, %xmm0
+	movl	-40(%rbp), %eax
+	cltq
+	leaq	0(,%rax,4), %rdx
+	leaq	a(%rip), %rax
+	movss	%xmm0, (%rdx,%rax)
+	call	rand@PLT
+	addl	$1, %eax
+	cvtsi2sdl	%eax, %xmm1
+	movsd	.LC0(%rip), %xmm0
+	divsd	%xmm1, %xmm0
+	cvtsd2ss	%xmm0, %xmm0
+	movl	-40(%rbp), %eax
+	cltq
+	leaq	0(,%rax,4), %rdx
+	leaq	b(%rip), %rax
+	movss	%xmm0, (%rdx,%rax)
+	addl	$1, -40(%rbp)
+	jmp	.L3
+.L2:
+	movl	$0, -36(%rbp)
+.L7:
+	cmpl	$19, -36(%rbp)
+	jg	.L4
+	movl	$0, -32(%rbp)
+.L6:
+	cmpl	$99999999, -32(%rbp)
+	jg	.L5
+	movl	-32(%rbp), %eax
+	cltq
+	leaq	0(,%rax,4), %rdx
+	leaq	d(%rip), %rax
+	movss	(%rdx,%rax), %xmm1
+	movl	-32(%rbp), %eax
+	cltq
+	leaq	0(,%rax,4), %rdx
+	leaq	a(%rip), %rax
+	movss	(%rdx,%rax), %xmm2
+	movl	-32(%rbp), %eax
+	cltq
+	leaq	0(,%rax,4), %rdx
+	leaq	b(%rip), %rax
+	movss	(%rdx,%rax), %xmm0
+	mulss	%xmm2, %xmm0
+	addss	%xmm1, %xmm0
+	movl	-32(%rbp), %eax
+	cltq
+	leaq	0(,%rax,4), %rdx
+	leaq	d(%rip), %rax
+	movss	%xmm0, (%rdx,%rax)
+	addl	$1, -32(%rbp)
+	jmp	.L6
+.L5:
+	addl	$1, -36(%rbp)
+	jmp	.L7
+.L4:
+	call	clock@PLT
+	movq	%rax, -16(%rbp)
+	movl	$0, -28(%rbp)
+.L11:
+	cmpl	$19, -28(%rbp)
+	jg	.L8
+	movl	$0, -24(%rbp)
+.L10:
+	cmpl	$99999999, -24(%rbp)
+	jg	.L9
+	movl	-24(%rbp), %eax
+	cltq
+	leaq	0(,%rax,4), %rdx
+	leaq	c(%rip), %rax
+	movss	(%rdx,%rax), %xmm1
+	movl	-24(%rbp), %eax
+	cltq
+	leaq	0(,%rax,4), %rdx
+	leaq	a(%rip), %rax
+	movss	(%rdx,%rax), %xmm2
+	movl	-24(%rbp), %eax
+	cltq
+	leaq	0(,%rax,4), %rdx
+	leaq	b(%rip), %rax
+	movss	(%rdx,%rax), %xmm0
+	mulss	%xmm2, %xmm0
+	addss	%xmm1, %xmm0
+	movl	-24(%rbp), %eax
+	cltq
+	leaq	0(,%rax,4), %rdx
+	leaq	c(%rip), %rax
+	movss	%xmm0, (%rdx,%rax)
+	addl	$1, -24(%rbp)
+	jmp	.L10
+.L9:
+	addl	$1, -28(%rbp)
+	jmp	.L11
+.L8:
+	call	clock@PLT
+	movq	%rax, -8(%rbp)
+	movq	-8(%rbp), %rax
+	subq	-16(%rbp), %rax
+	cvtsi2sdq	%rax, %xmm0
+	movsd	.LC1(%rip), %xmm1
+	divsd	%xmm1, %xmm0
+	leaq	.LC2(%rip), %rdi
+	movl	$1, %eax
+	call	printf@PLT
+	movl	$0, -20(%rbp)
+.L15:
+	cmpl	$99999999, -20(%rbp)
+	jg	.L12
+	movl	-20(%rbp), %eax
+	cltq
+	leaq	0(,%rax,4), %rdx
+	leaq	c(%rip), %rax
+	movss	(%rdx,%rax), %xmm0
+	movl	-20(%rbp), %eax
+	cltq
+	leaq	0(,%rax,4), %rdx
+	leaq	d(%rip), %rax
+	movss	(%rdx,%rax), %xmm1
+	subss	%xmm1, %xmm0
+	movl	-20(%rbp), %eax
+	cltq
+	leaq	0(,%rax,4), %rdx
+	leaq	d(%rip), %rax
+	movss	(%rdx,%rax), %xmm1
+	divss	%xmm1, %xmm0
+	cvtss2sd	%xmm0, %xmm0
+	comisd	.LC3(%rip), %xmm0
+	jbe	.L18
+	movl	-20(%rbp), %eax
+	movl	%eax, %esi
+	leaq	.LC4(%rip), %rdi
+	movl	$0, %eax
+	call	printf@PLT
+	movl	$1, %edi
+	call	exit@PLT
+.L18:
+	addl	$1, -20(%rbp)
+	jmp	.L15
+.L12:
+	leaq	.LC5(%rip), %rdi
+	call	puts@PLT
+	movl	$0, %eax
+	leave
+	.cfi_def_cfa 7, 8
+	ret
+	.cfi_endproc
+.LFE15:
+	.size	main, .-main
+	.section	.rodata
+	.align 8
+.LC0:
+	.long	0
+	.long	1072693248
+	.align 8
+.LC1:
+	.long	0
+	.long	1093567616
+	.align 8
+.LC3:
+	.long	3944497965
+	.long	1058682594
+	.ident	"GCC: (Ubuntu 9.4.0-1ubuntu1~20.04.1) 9.4.0"
+	.section	.note.GNU-stack,"",@progbits
+	.section	.note.gnu.property,"a"
+	.align 8
+	.long	 1f - 0f
+	.long	 4f - 1f
+	.long	 5
+0:
+	.string	 "GNU"
+1:
+	.align 8
+	.long	 0xc0000002
+	.long	 3f - 2f
+2:
+	.long	 0x3
+3:
+	.align 8
+4:
